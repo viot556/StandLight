@@ -3,8 +3,8 @@
 #include "Button.h"
 #include "Led.h"
 #include "Listener.h"
-
-
+#include "Controller.h"
+#include "View.h"
 
 int main()
 {
@@ -12,11 +12,14 @@ int main()
 
     Button button1(27); //27번 핀이 power버튼이라고 의미를 부여함
     Led led1(25);
-    Listener listener(&button1, &led1);
+    View view(&led1);
+    Controller control(&view);
+    Listener listener(&button1, &control);
 
     while (1)
     {
         listener.checkEvent();
+        view.lightView();
         delay(50);
     }
     return 0;

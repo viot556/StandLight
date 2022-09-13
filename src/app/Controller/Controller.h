@@ -1,8 +1,8 @@
-#ifndef __CONTROLLER_H__
-#define __CONTROLLER_H__
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
 
-#include <string>
 #include "View.h"
+#include "string"
 
 class Controller
 {
@@ -13,7 +13,7 @@ private:
 public:
     Controller(View *viewer);
     virtual ~Controller();
-    void updateEvent(std::string strBtn);
+    void updateEvent(std::string strBtn);   // 어떤 버튼이 눌렸는지 문자열로
 };
 
 #endif
